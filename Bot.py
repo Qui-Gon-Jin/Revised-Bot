@@ -40,5 +40,7 @@ async def on_message(message):
 			await message.channel.send("```Done\nCharacter: " + character[1] + "\nBy user: " + str(message.author) + "\nIs done```")
 		else:
 			await message.channel.send("```You doind it wrong\nTry !add_char name```")
-			
-client.run('NzI5NTkzMjA0MTc2OTc3OTcx.XwLPlQ.DjcowfdOWVWq3XQ_1wJz43EQOLs')
+
+token = open('token.txt', 'r')
+client.run(token.read())
+token.close()
