@@ -1,3 +1,4 @@
+import Log
 class Character:
 	def __init__(self, character, author):
 		self.character = character
@@ -5,7 +6,8 @@ class Character:
 		self.character_info['name'] = character[1]
 		self.character_info['clan'] = character[2]
 		self.character_info['player'] = author
+		Log.log_character(author, self.character_info)
 	def show_character(self):
-		output = ("```" + str(self.character_info) + "```")
+		output = ("```User: " + self.character_info['player'] + "\nCharacter: " + self.character_info['name'] + "\nClan: " + self.character_info['clan'] + "```")
 		return(output)
 		

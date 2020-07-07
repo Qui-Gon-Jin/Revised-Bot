@@ -28,16 +28,15 @@ async def on_message(message):
 		roll = message.content.split(" ")
 		dice = roll[1].split("d")
 		threshold = int(roll[2])
-		output = Roll.rolling_function(roll, dice, threshold, roll_result, str(message.author))
+		output = Roll.rolling_function(roll, dice, threshold, roll_result, str(author), str(message.author))
 		await message.channel.send(output)
 
 	if message.content.startswith('!add_char'):
 		character = message.content.split(" ")
-		characters[author] = Character(character, str(message.author))
+		characters[author] = Character(character, author)
 
 	if message.content.startswith('!show_char'):
 		await message.channel.send(characters[author].show_character())
-
 
 token = open('token.txt', 'r')
 client.run(token.read())

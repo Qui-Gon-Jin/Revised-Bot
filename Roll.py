@@ -1,6 +1,6 @@
 import Log
 import random
-def rolling_function(roll, dice, threshold, roll_result, message):
+def rolling_function(roll, dice, threshold, roll_result, author, message):
 	i = 0
 	success = 0
 	roll_result.clear()
@@ -25,4 +25,4 @@ def rolling_function(roll, dice, threshold, roll_result, message):
 		else:
 			throw_result = "Fail: "
 	Log.log_roll(message, throw_result, str(success), str(roll_result), str(bonus), roll)
-	return("```" + message + "\n" + throw_result + str(success) + "\n" + str(roll_result) + "\nbonus: " + str(bonus) + "```")
+	return("```" + str(message) + "\n" + throw_result + str(success) + "\n" + str(roll_result) + "\nbonus: " + str(bonus) + "```")
