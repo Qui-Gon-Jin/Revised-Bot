@@ -24,5 +24,5 @@ def rolling_function(roll, dice, threshold, roll_result, message):
 			throw_result = "Crit Fail: "
 		else:
 			throw_result = "Fail: "
-	Log.log(message, throw_result, str(success), str(roll_result), str(bonus), roll)
+	Log.log_roll(message, throw_result, str(success), str(roll_result), str(bonus), roll)
 	return("```" + message + "\n" + throw_result + str(success) + "\n" + str(roll_result) + "\nbonus: " + str(bonus) + "```")
