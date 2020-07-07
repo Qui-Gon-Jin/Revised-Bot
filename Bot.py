@@ -7,13 +7,16 @@ from Character import Character
 
 client = discord.Client()
 roll_result = []
+characters = dict()
 @client.event
 async def on_ready():
 	print('We have logged in as {0.user}'.format(client))
 
 @client.event
 async def on_message(message):
+	global characters
 	global new_character
+	author = str(message.author).split('#')[0]
 	if message.author == client.user:
 		return
 	if message.content.startswith('!help'):
@@ -30,11 +33,10 @@ async def on_message(message):
 
 	if message.content.startswith('!add_char'):
 		character = message.content.split(" ")
-		new_character = Character(character, str(message.author))
+		characters[author] = Character(character, str(message.author))
 
 	if message.content.startswith('!show_char'):
-		await message.channel.send(new_character.show_character())
-	#if message.content.startswith('!mod_char'):
+		await message.channel.send(characters[author].show_character())
 
 
 token = open('token.txt', 'r')
