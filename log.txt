@@ -137,3 +137,12 @@ User: Shadow
 Created: Ada	Clan: Tremer
 At 16:08 - 07.07
 
+Shadow#0807	Crit Fail: -1	[6, 1, 3]	bonus: 0
+( 3d10, 7 )	20:09 - 08.07
+
+Shadow#0807	Crit Fail: -1	[5, 1, 1, 7]	bonus: 0
+( 4d10, 6 )	20:09 - 08.07
+
+Shadow#0807	Success: 2	[8, 5, 9]	bonus: 0
+( 3d10, 6 )	20:09 - 08.07
+
