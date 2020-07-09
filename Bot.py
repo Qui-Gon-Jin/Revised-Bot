@@ -7,7 +7,6 @@ import Settings
 from Character import Character
 
 client = discord.Client()
-roll_result = []
 characters = dict()
 
 startup_time = datetime.now()
@@ -36,10 +35,7 @@ async def on_message(message):
 		await message.channel.send('```Started at: \t' + startup_time + '\nUptime: \t\t' + diff_time + '```')
 
 	if message.content.startswith('!roll'):
-		roll = message.content.split(" ")
-		dice = roll[1].split("d")
-		threshold = int(roll[2])
-		output = Roll.rolling_function(roll, dice, threshold, roll_result, str(author), str(message.author))
+		output = Roll.rolling_function(str(message.content), str(message.author))
 		await message.channel.send(output)
 
 	if message.content.startswith('!add_char'):
