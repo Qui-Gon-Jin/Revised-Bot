@@ -1,6 +1,5 @@
 def help():
-	intro = "Hey, hey.\nIt's me ~~Mario~~ Revised Bot for playing Vampire the Masquarade using discord.\n"
-	guide = "Use !roll **n**d**n** **n** with your: \n```1 - number of dices\n2 - dice max value\n3 - success threshold\n!set - to see current settings\n!re_set - to change settings```"
-	conclusion = "```!roll 4d10 6```\nWish you nice time <3"
-	output = intro + guide + conclusion
+	guide = "```Use !roll **number**d**dice** **threshold**\nIf you will input !roll **number** **threshold**, d10 will be rolled as default\n!roll **number** will roll your number of yours and default d10 with threshold 6" + "\n!set - to see current settings\n!re_set - to change settings"
+	conclusion = "\nWish you nice time <3```"
+	output = guide + conclusion
 	return(output)
