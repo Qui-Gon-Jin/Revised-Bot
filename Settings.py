@@ -8,11 +8,13 @@ def choose_set(message):
 	if len(set_choose) == 1:
 		return(show_settings())
 	elif set_choose[1] == "bonus":
-		change_bonus_state(set_choose[2])
+		return(change_bonus_state(set_choose[2]))
 	elif set_choose[1] == "log":
-		change_log_state(set_choose[2])
+		return(change_log_state(set_choose[2]))
 	elif set_choose[1] == "mod":
-		change_dice_mod(set_choose[2])
+		return(change_dice_mod(set_choose[2]))
+	else:
+		return("something went")
 
 
 def show_settings():
@@ -26,13 +28,13 @@ def show_settings():
 	return(output)
 def change_bonus_state(bonus):
 	bonus_works = bonus
-	print(bonus_works)
+	return("```" + bonus_works + "```")
 def change_log_state(log):
 	do_log = log
-	print(do_log)
+	return("```" + do_log + "```")
 def change_dice_mod(mod):
 	dice_mod = mod
-	print(mod)
+	return("```" + mod + "```")
 def serialize():
 	with open("Settings.json", "w") as write_file:
 		json.dump(data, write_file)
