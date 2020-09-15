@@ -49,6 +49,6 @@ async def on_message(message):
 	if message.content.startswith('!show_char'):
 		await message.channel.send(characters[author].show_character())
 
-token = open('token.txt', 'r')
+token = open('Token.txt', 'r')
 client.run(token.read())
 token.close()
