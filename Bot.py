@@ -24,8 +24,8 @@ async def on_message(message):
 		return
 	if message.content.startswith('!help'):
 		await message.channel.send(Help.help())
-	if message.content.startswith('!set'):
-		await message.channel.send(Settings.show_settings())
+
+
 	if message.content.startswith('!uptime'):
 		current_time = datetime.now()
 		diff_time = current_time - startup_time
@@ -37,6 +37,9 @@ async def on_message(message):
 	if message.content.startswith('!roll'):
 		output = Roll.rolling_function(str(message.content), str(message.author))
 		await message.channel.send(output)
+
+	if message.content.startswith('!set'):
+		await message.channel.send(Settings.choose_set(str(message.content)))
 
 	if message.content.startswith('!add_char'):
 		character = message.content.split(" ")
