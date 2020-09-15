@@ -19,12 +19,13 @@ async def on_ready():
 async def on_message(message):
 	global characters
 	global new_character
+	settings = Settings.Settings()
+
 	author = str(message.author).split('#')[0]
 	if message.author == client.user:
 		return
 	if message.content.startswith('!help'):
 		await message.channel.send(Help.help())
-
 
 	if message.content.startswith('!uptime'):
 		current_time = datetime.now()
@@ -39,7 +40,18 @@ async def on_message(message):
 		await message.channel.send(output)
 
 	if message.content.startswith('!set'):
-		await message.channel.send(Settings.choose_set(str(message.content)))
+		
+		if len(str(message.content).split(" ")) == 1:
+			await message.channel.send(settings.show_settings())
+		elif str(message.content).split(" ")[1] == "bonus":
+			await message.channel.send(settings.change_bonus_state(str(message.content).split(" ")[2]))
+		elif str(message.content).split(" ")[1] == "log":
+			await message.channel.send(settings.change_log_state(str(message.content).split(" ")[2]))
+		elif str(message.content).split(" ")[1] == "mod":
+			await message.channel.send(settings.change_dice_mod(str(message.content).split(" ")[2]))
+
+		#await message.channel.send(settings.show_settings())
+		#await message.channel.send(settings.choose_set(str(message.content)))
 
 	if message.content.startswith('!add_char'):
 		character = message.content.split(" ")
