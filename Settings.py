@@ -1,9 +1,9 @@
 import json
-explosive_dice = False;
+explosive_dice = True;
 do_log = True
 
 def show_settings():
-	output = "```Is bonus mechanic works: " + str(explosive_dice) +"\nIs logging is commiting: " + str(do_log) + "```"
+	output = "```Bonus mechanic: " + str(explosive_dice) +"\nLogging: " + str(do_log) + "```"
 	return(output)
 def change_settings(bonus, log):
 	bonus_works = bonus

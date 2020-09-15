@@ -2,8 +2,9 @@ import Log
 import random
 import Settings
 def rolling_function(message, author):
-	crit_fail_check = True;
+	crit_fail_check = True
 	i = 0
+	bonus_string = ""
 	success = 0
 	roll_result = []
 	roll_result.clear()
@@ -48,5 +49,13 @@ def rolling_function(message, author):
 		else:
 			throw_result = "Fail: "
 	Log.log_roll(message, throw_result, str(success), str(roll_result), str(bonus), roll)
-	return("```" + author + "\n" + throw_result + str(success) + "\n" + str(roll_result)"```")
+	if bonus >= 1:
+		bonus_string = ("\nbonus: " + str(bonus))
+
+	output_string = ("```" 
+					+ author + "\n"
+					+ throw_result + str(success) + "\n"
+					+ str(roll_result)
+					+ bonus_string + "```")
+	return(output_string)
 	#return("```" + author + "\n" + throw_result + str(success) + "\n" + str(roll_result) + "\nbonus: " + str(bonus) + "```")
