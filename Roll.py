@@ -13,14 +13,6 @@ def rolling_function(message, author):
 	dice = []
 
 	roll = message.split(" ")
-	if len(roll) == 3:
-		if 'd' in roll[1]:
-			dice = roll[1].split("d")
-			threshold = int(roll[2])
-		else:
-			dice.append(int(roll[1]))
-			dice.append(10)
-			threshold = int(roll[2])
 	if len(roll) == 2:
 		if "d" in roll[1]:
 			dice.append(int(roll[1].split("d")[0]))
@@ -30,13 +22,22 @@ def rolling_function(message, author):
 			dice.append(10)
 		threshold = 6
 
+	elif len(roll) == 3:
+		if 'd' in roll[1]:
+			dice.append(int(roll[1].split("d")[0]))
+			dice.append(int(roll[1].split("d")[1]))
+		else:
+			dice.append(int(roll[1]))
+			dice.append(10)
+		threshold = int(roll[2])
+
 	while i < int(dice[0]):
 		rolling = random.randint(1, int(dice[1]))
 		roll_result.append(rolling)
 		if rolling >= threshold:
 			success = success + 1
 			crit_fail_check = False;
-			if rolling == int(dice[1]) and Settings.explosive_dice == True:
+			if rolling == int(dice[1]):
 				i = i - 1
 				bonus = bonus + 1
 		elif rolling == 1:

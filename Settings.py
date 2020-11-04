@@ -1,4 +1,5 @@
 import json
+
 class Settings:
 	def __init__(self):
 		self.explosive_dice = False
