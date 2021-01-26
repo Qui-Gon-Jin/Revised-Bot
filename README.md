@@ -1,6 +1,6 @@
 # Revised Bot
-## Discord bot for playing VtM tabletop.
-____
+## Discord bot for WoD tabletops.
+
 To run bot on your own, first download or clone repository, then create [discord bot token](https://discord.com/developers/applications) and put it to new file "Token.txt" near to Bot.py.
 Bot primary uses "discord" libruary, so before starting it make shure you installed it with
 ```
