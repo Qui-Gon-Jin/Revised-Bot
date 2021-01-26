@@ -8,9 +8,7 @@ pip install discord
 ```
 ____
 Rolls are looking the same as they presented in a corebook
-```
-!roll **number**d**dice** **threshold**
-```
+`!roll ***number*** d ***dice*** ***threshold***`
 Also it's include a default difficulty as 6, so roll without **threshold** would be count so
 ```
 !roll **number**d**dice**
