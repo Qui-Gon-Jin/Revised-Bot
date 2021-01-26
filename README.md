@@ -12,10 +12,10 @@ Rolls are looking the same as they presented in a corebook
 !roll ***number***d***dice*** ***threshold***
 ```
 Also it's include a default difficulty as 6, so roll without **threshold** would be count so
-```
-!roll **number**d**dice**
+```markdown
+!roll ***number***d***dice***
 ```
 And finnaly, as a WoD games uses only d10 dices, you can skip **dice** in your notation
-```
-!roll **number**
+```markdown
+!roll ***number***
 ```
