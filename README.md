@@ -17,5 +17,5 @@ Also it's include a default difficulty as 6, so roll without **threshold** would
 ```
 And finnaly, as a WoD games uses only d10 dices, you can skip **dice** in your notation
 ```
->!roll *number*
+!roll *number*
 ```
