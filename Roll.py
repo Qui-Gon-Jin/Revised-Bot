@@ -11,7 +11,8 @@ def rolling_function(message, author):
 	success = 0
 	bonus = 0
 	dice = []
-
+	settings_object = Settings.Settings()
+	
 	roll = message.split(" ")
 	if len(roll) == 3:
 		if 'd' in roll[1]:
@@ -36,7 +37,7 @@ def rolling_function(message, author):
 		if rolling >= threshold:
 			success = success + 1
 			crit_fail_check = False;
-			if rolling == int(dice[1]) and Settings.explosive_dice == True:
+			if rolling == int(dice[1]) and settings_object.explosive_dice == True:
 				i = i - 1
 				bonus = bonus + 1
 		elif rolling == 1:
@@ -58,4 +59,3 @@ def rolling_function(message, author):
 					+ str(roll_result)
 					+ bonus_string + "```")
 	return(output_string)
-	#return("```" + author + "\n" + throw_result + str(success) + "\n" + str(roll_result) + "\nbonus: " + str(bonus) + "```")
