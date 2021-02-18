@@ -1,5 +1,11 @@
 def help():
-	guide = "```Use !roll **number**d**dice** **threshold**\nIf you will input !roll **number** **threshold**, d10 will be rolled as default\n!roll **number** will roll your number of yours and default d10 with threshold 6" + "\n!set - to see current settings\n!re_set - to change settings"
-	conclusion = "\nWish you nice time <3```"
-	output = guide + conclusion
-	return(output)
+	guide = ("```Rolls are looking the same as they presented in a corebook:\n\n" +
+	"!roll *number_of_dices* *roll_threshold*\n\n" +
+	"As bot supports default  **roll_threshold** as 6, you can skip this part and type\n\n" +
+	"!roll *number_of_dices*\n\n" +
+	"If you need some extra of d10 dices, type\n\n" +
+	"!roll *number_of_dices*d*dice_type* *roll_threshold*\n\n" +
+	"Or skip **roll_threshold**, and it will counted as 6\n\n" +
+	"!roll *number_of_dices*d*dice_type*\n\n\n" +
+	"Wish you nice time <3```")
+	return(guide)

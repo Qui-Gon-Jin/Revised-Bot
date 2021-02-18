@@ -31,3 +31,8 @@ Bot primary uses "discord" libruary, so before starting it make shure you instal
 ```
 pip install discord
 ```
+____
+## In development
+
+- [ ] Set explosive dices option
+- [ ] Make the settings changeable for each individual server
