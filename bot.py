@@ -3,7 +3,6 @@ from datetime import datetime
 from discord.ext import commands
 import help_call
 import roll
-import settings
 from character import character
 
 client = discord.Client()
@@ -19,7 +18,6 @@ async def on_ready():
 async def on_message(message):
 	global characters
 	global new_character
-	settings = settings.settings()
 
 	author = str(message.author).split('#')[0]
 	if message.author == client.user:
@@ -38,31 +36,6 @@ async def on_message(message):
 	if message.content.startswith('!roll') or message.content.startswith('!r'):
 		output = roll.rolling_function(str(message.content), str(message.author))
 		await message.channel.send(output)
-
-	if message.content.startswith('!set'):
-		
-		if len(str(message.content).split(" ")) == 1:
-			await message.channel.send(settings.show_settings())
-		elif str(message.content).split(" ")[1] == "bonus":
-			await message.channel.send(settings.change_bonus_state(str(message.content).split(" ")[2]))
-		elif str(message.content).split(" ")[1] == "log":
-			await message.channel.send(settings.change_log_state(str(message.content).split(" ")[2]))
-		elif str(message.content).split(" ")[1] == "mod":
-			await message.channel.send(settings.change_dice_mod(str(message.content).split(" ")[2]))
-
-		#await message.channel.send(settings.show_settings())
-		#await message.channel.send(settings.choose_set(str(message.content)))
-
-	if message.content.startswith('!add_char'):
-		character = message.content.split(" ")
-		characters[author] = character(character, author)
-		
-	if message.content.startswith('!mod_char'):
-		character = message.content.split(" ")
-		characters[author] = character(character, author)
-
-	if message.content.startswith('!show_char'):
-		await message.channel.send(characters[author].show_character())
 
 token = open('Token.txt', 'r')
 client.run(token.read())
