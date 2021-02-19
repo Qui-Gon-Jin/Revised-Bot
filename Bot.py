@@ -1,10 +1,10 @@
 import discord
 from datetime import datetime
 from discord.ext import commands
-import Help
-import Roll
-import Settings
-from Character import Character
+import help_call
+import roll
+import settings
+from character import character
 
 client = discord.Client()
 characters = dict()
@@ -19,13 +19,13 @@ async def on_ready():
 async def on_message(message):
 	global characters
 	global new_character
-	settings = Settings.Settings()
+	settings = settings.settings()
 
 	author = str(message.author).split('#')[0]
 	if message.author == client.user:
 		return
 	if message.content.startswith('!help'):
-		await message.channel.send(Help.help())
+		await message.channel.send(help_call.help())
 
 	if message.content.startswith('!uptime'):
 		current_time = datetime.now()
@@ -36,7 +36,7 @@ async def on_message(message):
 		await message.channel.send('```Started at: \t' + startup_time + '\nUptime: \t\t' + diff_time + '```')
 
 	if message.content.startswith('!roll') or message.content.startswith('!r'):
-		output = Roll.rolling_function(str(message.content), str(message.author))
+		output = roll.rolling_function(str(message.content), str(message.author))
 		await message.channel.send(output)
 
 	if message.content.startswith('!set'):
@@ -55,11 +55,11 @@ async def on_message(message):
 
 	if message.content.startswith('!add_char'):
 		character = message.content.split(" ")
-		characters[author] = Character(character, author)
+		characters[author] = character(character, author)
 		
 	if message.content.startswith('!mod_char'):
 		character = message.content.split(" ")
-		characters[author] = Character(character, author)
+		characters[author] = character(character, author)
 
 	if message.content.startswith('!show_char'):
 		await message.channel.send(characters[author].show_character())

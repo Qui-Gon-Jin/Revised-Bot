@@ -1,6 +1,6 @@
-import Log
+import log
 import random
-import Settings
+import settings
 def rolling_function(message, author):
 	crit_fail_check = True
 	i = 0
@@ -11,7 +11,7 @@ def rolling_function(message, author):
 	success = 0
 	bonus = 0
 	dice = []
-	settings_object = Settings.Settings()
+	settings_object = settings.settings()
 	
 	roll = message.split(" ")
 	if len(roll) == 3:
@@ -49,7 +49,7 @@ def rolling_function(message, author):
 			throw_result = "Crit Fail: "
 		else:
 			throw_result = "Fail: "
-	Log.log_roll(message, throw_result, str(success), str(roll_result), str(bonus), roll)
+	log.log_roll(message, throw_result, str(success), str(roll_result), str(bonus), roll)
 	if bonus >= 1:
 		bonus_string = ("\nbonus: " + str(bonus))
 

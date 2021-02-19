@@ -1,5 +1,5 @@
 import json
-class Settings:
+class settings:
 	def __init__(self):
 		self.explosive_dice = False
 		self.do_log = True
