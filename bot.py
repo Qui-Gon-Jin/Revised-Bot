@@ -3,7 +3,6 @@ from datetime import datetime
 from discord.ext import commands
 import help_call
 import roll
-from character import character
 
 client = discord.Client()
 characters = dict()
@@ -14,11 +13,9 @@ startup_time = datetime.now()
 async def on_ready():
 	print('We have logged in as {0.user}'.format(client))
 	print(str(startup_time))
+
 @client.event
 async def on_message(message):
-	global characters
-	global new_character
-
 	author = str(message.author).split('#')[0]
 	if message.author == client.user:
 		return
@@ -30,7 +27,6 @@ async def on_message(message):
 		diff_time = current_time - startup_time
 		startup_time = str(startup_time).split('.')[0]
 		diff_time = str(diff_time).split('.')[0]
- 
 		await message.channel.send('```Started at: \t' + startup_time + '\nUptime: \t\t' + diff_time + '```')
 
 	if message.content.startswith('!roll') or message.content.startswith('!r'):
