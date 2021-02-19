@@ -35,7 +35,7 @@ async def on_message(message):
  
 		await message.channel.send('```Started at: \t' + startup_time + '\nUptime: \t\t' + diff_time + '```')
 
-	if message.content.startswith('!roll'):
+	if message.content.startswith('!roll') or message.content.startswith('!r'):
 		output = Roll.rolling_function(str(message.content), str(message.author))
 		await message.channel.send(output)
 
