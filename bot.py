@@ -30,9 +30,11 @@ async def on_message(message):
 		await message.channel.send('```Started at: \t' + startup_time + '\nUptime: \t\t' + diff_time + '```')
 
 	if message.content.startswith('!roll') or message.content.startswith('!r'):
-		output = roll.rolling_function(str(message.content), str(message.author))
+		#output = roll.rolling_function(str(message.content), str(message.author))
+		roll_rezult = roll.roll(str(message.content), str(message.author))
+		output = roll_rezult.rolling()
 		await message.channel.send(output)
 
-token = open('Token.txt', 'r')
+token = open('test_token.txt', 'r')
 client.run(token.read())
 token.close()
