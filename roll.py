@@ -11,8 +11,7 @@ class roll:
 		self.roll_result = []
 		self.params = []
 		self.roll = message.split(" ")
-		self.result = [0, ""]
-
+		self.result = [0, 0, "", 0]
 
 	def rolling(self):
 		del self.roll[0]
@@ -37,21 +36,24 @@ class roll:
 			i += 1
 			if self.roll_result[-1] == self.dice[1] and "e" in self.params: #explosion
 				i -= 1
+				self.result[3] +=1
 
 		for i in self.roll_result:
-			if i >= self.difficulty:
+			if i >= self.difficulty:	#count >= difficulty
 				self.result[0] += 1
-			if i == 1:
-				self.result[0] -= 1
+			if i == 1:					#count 1
+				self.result[1] += 1
 
-		if self.result[0] > 0:
-			self.result[1] = "success"
-		elif self.result[0] <= 0:
-			self.result[1] = "fail"
+		if self.result[0] > self.result[1]:		#success
+			self.result[2] = "Success: " + str(self.result[0] - self.result[1])
+		elif self.result[0] == 0 and self.result[1] >= 1 and self.crit_fail_check == True:	#crit fail
+			self.result[2] = "Crit fail: " + str(self.result[0] - self.result[1])
+		elif self.result[0] <= self.result[1]:	#fail
+			self.result[2] = "Fail: " + str(self.result[0] - self.result[1])
 
+		output = (self.author + "\n" + self.result[2] + "\n" + str(self.roll_result))
 
+		if self.result[3] >= 1:
+			output += ("\n" + "Explodes: " + str(self.result[3]))
 
-		return("```dices: " + str(self.dice) + "\ndiff: " +
-			str(self.difficulty) + "\nparams: " + str(self.params) +
-			"\nroll array: " + str(self.roll_result) + "\nresult" + str(self.result) + 
-			"```")
+		return("```" + output + "```")
