@@ -14,6 +14,10 @@ As bot supports default  **roll_threshold** as 6, you can skip this part and typ
 ```
 !roll *number_of_dices*
 ```
+Add -e in the end of comand to roll with explosive option (every 10 on roll will be reroled extra time)
+```
+!roll *number_of_dices* *roll_threshold* -e
+```
 If you need some extra of d10 dices, type
 
 ```
