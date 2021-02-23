@@ -24,6 +24,6 @@ async def on_message(message):
 		roll_rezult = roll.roll(str(message.content), str(message.author))
 		await message.channel.send(roll_rezult.rolling())
 
-token = open('test_token.txt', 'r')
+token = open('token.txt', 'r')
 client.run(token.read())
 token.close()
