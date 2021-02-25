@@ -1,18 +1,21 @@
 import json
 class settings:
-	def __init__(self):
-		self.explosive_dice = False
+	def __init__(self, guild, channel):
+		self.server_name = guild
+		self.chat_name = channel
+		self.explosive_dice_by_default = False
 		self.do_log = True
-		self.dice_mod = True
+
 	def show_settings(self):
-		output = ("```Bonus mechanic: " 
-					+ str(self.explosive_dice)
-					+ "\nLogging: "
-					+ str(self.do_log)
-					+ "\nDice mod: "
-					+ str(self.dice_mod)
-					+ "```")
+		output = ("```" 
+			+ "server_id: " + str(self.server_name)
+			+ "\nchat_id: " + str(self.chat_name)
+			+ "\nBonus mechanic by default: " 
+			+ str(self.explosive_dice_by_default)
+			+ "\nLogging: " + str(self.do_log)
+			+ "```")
 		return(output)
+
 	def change_bonus_state(self, bonus):
 		if str(bonus) == "False":
 			bonus = False
@@ -20,6 +23,7 @@ class settings:
 			bonus = True
 		self.explosive_dice = bonus
 		return("```" + str(self.explosive_dice) + "```")
+
 	def change_log_state(self, log):
 		self.do_log = log
 		return("```" + self.do_log + "```")

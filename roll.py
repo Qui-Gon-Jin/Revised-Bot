@@ -30,6 +30,9 @@ class roll:
 		else:
 			self.dice[0] = int(self.roll[0].split("d")[0])
 
+		if self.difficulty > self.dice[1]:
+			self.difficulty = self.dice[1]
+			
 		i = 0
 		while i < self.dice[0]:		#count throw
 			self.roll_result.append(random.randint(1, int(self.dice[1])))
