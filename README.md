@@ -30,7 +30,7 @@ Or skip **roll_threshold**, and it will counted as 6
 ____
 ## Bot installation
 
-To run bot on your own, first download or clone repository, then create [discord bot token](https://discord.com/developers/applications) and put it to new file "Token.txt" near to Bot.py.
+To run bot on your own, first download or clone repository, then create [discord bot token](https://discord.com/developers/applications) and put it to new file "token.txt" near to bot.py.
 Bot primary uses "discord" libruary, so before starting it make shure you installed it with
 ```
 pip install discord
