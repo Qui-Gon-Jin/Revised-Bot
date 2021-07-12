@@ -29,5 +29,5 @@ async def on_message(message):
 		await message.channel.send(settings_object.show_settings())
 
 token = open('token.txt', 'r')
-client.run(token.read())
+client.run(test_token.read())
 token.close()
