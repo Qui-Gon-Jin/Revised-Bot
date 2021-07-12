@@ -54,7 +54,7 @@ class roll:
 		elif self.result[0] <= self.result[1]:	#fail
 			self.result[2] = "Fail: " + str(self.result[0] - self.result[1])
 
-		output = (self.author + "\n" + self.result[2] + "\n" + str(self.roll_result))
+		output = (self.author + "\n" + self.result[2] + "\nValues: " + str(self.roll_result))
 
 		if self.result[3] >= 1:
 			output += ("\n" + "Explodes: " + str(self.result[3]))

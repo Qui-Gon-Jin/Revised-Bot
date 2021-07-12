@@ -4,6 +4,7 @@ from discord.ext import commands
 import help_call
 import roll
 import settings
+import initiative
 client = discord.Client()
 startup_time = datetime.now()
 
@@ -20,9 +21,13 @@ async def on_message(message):
 	if message.content.startswith('!help'):
 		await message.channel.send(help_call.help())
 
-	if message.content.startswith('!roll') or message.content.startswith('!r'):
+	if message.content.startswith('!r'):
 		roll_rezult = roll.roll(str(message.content), str(message.author))
 		await message.channel.send(roll_rezult.rolling())
+	
+	if message.content.startswith('!i'):
+		initiative_rezult = initiative.initiative(str(message.content), str(message.author))
+		await message.channel.send(initiative_rezult.init())
 
 	if message.content.startswith('!settings'):
 		settings_object = settings.settings(message.guild.id, message.channel.id)
