@@ -39,4 +39,5 @@ ____
 ## In development
 
 - [X] Set explosive dices option
+- [ ] Abilitie to make initiative calculation with !i n n
 - [ ] Make the settings changeable for each individual server
