@@ -28,6 +28,6 @@ async def on_message(message):
 		settings_object = settings.settings(message.guild.id, message.channel.id)
 		await message.channel.send(settings_object.show_settings())
 
-token = open('test_token.txt', 'r')
+token = open('token.txt', 'r')
 client.run(token.read())
 token.close()
