@@ -9,23 +9,32 @@ ___
 Rolls are looking the same as they presented in a corebook:
 ```
 !roll *number_of_dices* *roll_threshold*
+!roll 4 6
 ```
 As bot supports default  **roll_threshold** as 6, you can skip this part and type 
 ```
 !roll *number_of_dices*
+!roll 4
 ```
 Add -e in the end of comand to roll with explosive option (every 10 on roll will be reroled extra time)
 ```
 !roll *number_of_dices* *roll_threshold* -e
+!roll 4 6 -e
 ```
 If you need some extra of d10 dices, type
 
 ```
 !roll *number_of_dices*d*dice_type* *roll_threshold*
+!roll 4d10 6
 ```
 Or skip **roll_threshold**, and it will counted as 6
 ```
 !roll *number_of_dices*d*dice_type*
+!roll 4d10
+```
+Also you can use just !r instead of !roll comand.
+```
+!r 4d10 6 -e
 ```
 ____
 ## Bot installation
