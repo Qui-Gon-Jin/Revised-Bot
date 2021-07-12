@@ -27,12 +27,14 @@ class settings:
 	def change_log_state(self, log):
 		self.do_log = log
 		return("```" + self.do_log + "```")
+
 	def change_dice_mod(self, mod):
 		self.dice_mod = mod
 		return("```" + self.mod + "```")
+
 	def serialize():
 		with open("Settings.json", "w") as write_file:
 			json.dump(data, write_file)
-		pass
+
 	def deserialize():
 		pass
