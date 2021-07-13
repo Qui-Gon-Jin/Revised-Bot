@@ -1,8 +1,7 @@
-import log
 import random
-import settings
 
 class initiative:
+
     def __init__(self, message, author):
         self.author = author
         self.roll = message.split(" ")
@@ -12,9 +11,8 @@ class initiative:
         del self.roll[0]
         if len(self.roll) == 1:
             self.roll.append(self.roll[0])
-
         self.roll.append(random.randint(1, 10))
-            
-        self.result = int(self.roll[0]) + int(self.roll[1]) + int(self.roll[2])
-        output = (self.author + "\nInitiative: " + str(self.result) + "\nInitiative rating: " + str(int(self. roll[0]) + int(self. roll[1])) + "\nValues: [" + str(self. roll[0]) + ", " + str(self. roll[1]) + ", " + str((self. roll[2])) + "]")
-        return("```" + output + "```")
+        self.init_value = "\nInitiative rating: " +  int(self. roll[0]) + int(self. roll[1])
+        self.result = "\nInitiative: " + str(self.init_value + int(self.roll[2]))
+        self.values = "\nValues: [" + str(self. roll[0]) + ", " + str(self. roll[1]) + ", " + str((self. roll[2])) + "]"
+        return("```" + self.author + self.result + self.init_value + self.values + "```")
