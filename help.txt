@@ -1,19 +1,28 @@
 ```Rolls are looking the same as they presented in a corebook:
 
-!roll *number_of_dices* *roll_threshold*
+!r *number_of_dices* *roll_threshold*
+!r 3 6
 
 As bot supports default  **roll_threshold** as 6, you can skip this part and type
-
-!roll *number_of_dices*
+!r *number_of_dices*
+!r 4
 
 Add -e in the end of comand to roll with explosive option (every 10 on roll will be reroled extra time)
+!r *your throw info* -e
+!r 4 -e
 
-If you need some extra of d10 dices, type
+If you need some extra of d10 dices, use
+!r *number_of_dices*d*dice_type* *roll_threshold*
+!r 4d20 10
 
-!roll *number_of_dices*d*dice_type* *roll_threshold*
+It's also works with default threshold as 6
 
-Or skip **roll_threshold**, and it will counted as 6
+To roll initiative type
+!i *Dexterity* *Wits*
+!i 3 4
 
-!roll *number_of_dices*d*dice_type*
+Or you can type it only once, is they are equal
+!i *Dexterity or Wits*
+!i 3
 
 Wish you nice time <3```
