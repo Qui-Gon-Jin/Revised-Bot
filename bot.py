@@ -4,6 +4,7 @@ from discord.ext import commands
 import help_call
 import roll
 import initiative
+import timer
 client = discord.Client()
 startup_time = datetime.now()
 
@@ -28,6 +29,15 @@ async def on_message(message):
 	if message.content.startswith('!i'):
 		initiative_rezult = initiative.initiative(str(message.content), str(message.author))
 		await message.channel.send(initiative_rezult.init())
+	#Timer block
+	if message.content.startswith('!t'):
+		timer_message = timer.timer(str(message.content), str(message.author))
+		await message.channel.send(timer_message.start())
+
+		#channel = discord.utils.get(guild.text_channels, name="Name of channel")
+		#message = await channel.fetch_message('''id_of_the_message''')
+		#await message.edit(content="the new content of the message")
+
 #Choose token for logining in discord API
 token = open('token.txt', 'r')
 client.run(token.read())
