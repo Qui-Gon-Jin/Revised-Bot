@@ -1,7 +1,8 @@
 
 *.pyc
 Token.txt
+token.txt
+test_token.txt
 log.txt
 temp.py
-test_token.txt
 settings.json
